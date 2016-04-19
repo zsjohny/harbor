@@ -55,6 +55,7 @@ func (b *BaseAPI) DecodeJSONReq(v interface{}) {
 func (b *BaseAPI) ValidateUser() int {
 
 	username, password, ok := b.Ctx.Request.BasicAuth()
+	log.Infof("Requst with Basic Authentication header, username: %s", username)
 	if ok {
 		log.Infof("Requst with Basic Authentication header, username: %s", username)
 		user, err := auth.Login(models.AuthModel{
